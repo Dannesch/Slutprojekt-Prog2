@@ -8,8 +8,46 @@ user_list = [
         "Username": "johsta",
         "Password": "password",
         "StudentList": ["fRWL81-AqYyzm-A1B6vq-w2WM8n"]
+    },
+    {
+        "ID": "fRWL81-AqYyzm-A1B6vq-w2WM8n",
+        "Type": "Student",
+        "Name": "Daniel",
+        "Attendances": {}
     }
 ]
+
+def save_data(data):
+    return
+
+def load_data():
+    data = []
+    return data
+
+def pack_data(teachers, students, managers, superTeachers):
+    data = []
+    return data
+
+def unpack_data(data):
+    teachers = []
+    students = []
+    managers = []
+    superTeachers = []
+    for user in data:
+        user_type = user["Type"]
+        del user["Type"]
+        if user_type == "Teacher":
+            teachers.append(user)
+        elif user_type == "Student":
+            students.append(user)
+        elif user_type == "Manager":
+            managers.append(user)
+        elif user_type == "Super Teacher":
+            superTeachers.append(user)
+        
+    return [teachers, students, managers, superTeachers]
+
+print(unpack_data(user_list))
 
 class User:
     def __init__(self, Name, id = "") -> None:
